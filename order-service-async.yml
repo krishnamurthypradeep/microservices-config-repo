@@ -10,9 +10,9 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 15s
   r2dbc:
-    username: admin
-    password: admin
-    url: r2dbc:mysql://localhost:3306
+    username: sa
+    password:
+    url: r2dbc:h2:mem:orders
     name: devops
     pool:
       max-create-connection-time: 2s
