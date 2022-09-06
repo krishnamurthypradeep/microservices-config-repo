@@ -1,0 +1,27 @@
+server:
+  port: 9002
+  shutdown: graceful
+  netty:
+    connection-timeout: 2s
+
+spring:
+  
+  lifecycle:
+    timeout-per-shutdown-phase: 15s
+  r2dbc:
+    username: admin
+    password: admin
+    url: r2dbc:mysql://localhost:3306
+    name: devops
+    pool:
+      max-create-connection-time: 2s
+      initial-size: 5
+      max-size: 10
+  
+  
+eureka:
+ client:
+  registerWithEureka: true
+  fetchRegistry: true
+  serviceUrl:
+   defaultZone: http://localhost:8070/eureka/        
