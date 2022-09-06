@@ -13,7 +13,7 @@ spring:
     username: sa
     password:
     url: r2dbc:h2:mem:orders
-    name: devops
+    
     pool:
       max-create-connection-time: 2s
       initial-size: 5
