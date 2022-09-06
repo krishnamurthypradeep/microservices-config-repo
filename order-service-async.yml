@@ -15,7 +15,10 @@ spring:
     url: r2dbc:h2:mem:///msorders
   h2:
     console:
-      enabled: true  
+      enabled: true
+      path: /h2-console
+    # Optional h2 console port if not set or set 0, available port is given
+      port: 9003
     
     
   
