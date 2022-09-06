@@ -12,15 +12,12 @@ spring:
   r2dbc:
     username: sa
     password:
-    url: r2dbc:h2:mem:///orders
+    url: r2dbc:h2:mem:///msorders
   h2:
     console:
       enabled: true  
     
-    pool:
-      max-create-connection-time: 2s
-      initial-size: 5
-      max-size: 10
+    
   
   
 eureka:
