@@ -6,9 +6,19 @@ eureka:
   fetchRegistry: true
   serviceUrl:
    defaultZone: http://localhost:8070/eureka/
-
 spring:
-  
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: edge-service
+            client-secret: myapp-keycloak-secret
+            scope: openid
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8090/auth/realms/MyProductshop
+
   cloud:
     
     gateway:
@@ -40,17 +50,33 @@ spring:
           uri: lb://CATALOG-SERVICE
           predicates:
             - Path=/products/**
+          filters:
+           - name: CircuitBreaker
+             args:
+              name: catalogCircuitBreaker
+              fallbackUri: forward:/catalog-fallback
           
         - id: order-route
-          uri: lb://ORDER-SERVICE-ASYNC
-          predicates:
-            - Path=/orders/**
-
-        - id: order-route-1
           uri: lb://ORDER-SERVICE
           predicates:
-            - Path=/orders/**  
+            - Path=/orders/**
+          filters:
+           - name: CircuitBreaker
+             args:
+              name: orderCircuitBreaker
       
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 20
+        permittedNumberOfCallsInHalfOpenState: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 15000
+  timelimiter:
+    configs:
+      default:
+        timeoutDuration: 5s      
               
               
           
