@@ -64,6 +64,7 @@ spring:
            - name: CircuitBreaker
              args:
               name: orderCircuitBreaker
+              fallbackUri: forward:/catalog-fallback
       
 resilience4j:
   circuitbreaker:
