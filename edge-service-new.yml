@@ -20,8 +20,8 @@ spring:
     
     gateway:
       httpclient:
-        connect-timeout: 5000 # 5s
-        response-timeout: 5s
+        connect-timeout: 25000 # 5s
+        response-timeout: 15s
         pool:
           type: elastic
           max-idle-time: 15s
