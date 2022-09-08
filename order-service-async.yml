@@ -1,5 +1,5 @@
 server:
-  port: 9003
+  port: 6002
   shutdown: graceful
   netty:
     connection-timeout: 2s
@@ -17,7 +17,7 @@ spring:
       enabled: true
       path: /h2-console
     # Optional h2 console port if not set or set 0, available port is given
-      port: 9003
+      
     
     
   
@@ -27,7 +27,7 @@ eureka:
   registerWithEureka: true
   fetchRegistry: true
   serviceUrl:
-   defaultZone: http://localhost:8070/eureka/ 
+   defaultZone: http://host.docker.internal:8070/eureka/ 
      
       
  
