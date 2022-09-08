@@ -7,12 +7,14 @@ spring:
   h2:
     console:
       enabled: true
+      settings:
+        web-allow-others: true
   jpa:
     hibernate:
       ddl-auto: update      
        
 server:
-  port: 0 
+  port: 6002 
 
 management:
   endpoints:
@@ -25,4 +27,4 @@ eureka:
   registerWithEureka: true
   fetchRegistry: true
   serviceUrl:
-   defaultZone: http://localhost:8070/eureka/
+   defaultZone: http://host.docker.internal:8070/eureka/
