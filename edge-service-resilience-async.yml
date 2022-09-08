@@ -17,7 +17,7 @@ spring:
             scope: openid
         provider:
           keycloak:
-            issuer-uri: http://host.docker.internal:8080/auth/realms/Neworderms
+            issuer-uri: http://host.docker.internal:8080/auth/realms/NewOrderms
 
   cloud:
     
