@@ -13,11 +13,11 @@ spring:
         registration:
           keycloak:
             client-id: edge-service
-            client-secret: myapp-keycloak-secret
+            client-secret: orderms-keycloak-secret
             scope: openid
         provider:
           keycloak:
-            issuer-uri: http://localhost:8090/auth/realms/MyProductshop
+            issuer-uri: http://host.docker.internal:8080/auth/realms/Neworderms
 
   cloud:
     
